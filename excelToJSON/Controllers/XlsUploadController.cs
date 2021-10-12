@@ -22,7 +22,7 @@ namespace excelToJSON.Controllers
         {
             var content = ExcelHelper.ReadExcelasJSON(xlsFile);
             DatagridJson datagrid = new DatagridJson();
-            datagrid.Content = content;
+            datagrid.Rows = content;
             datagrid.Description = "My first datagrid package";
             return datagrid;
         }
