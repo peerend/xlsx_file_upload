@@ -9,7 +9,7 @@ namespace excelToJSON.Code
 {
     public class ExcelHelper
     {
-        public static string ReadExcelasJSON(IFormFile xlsFile)
+        public static string ReadExcelAsJSON(IFormFile xlsFile)
         {
             try
             {

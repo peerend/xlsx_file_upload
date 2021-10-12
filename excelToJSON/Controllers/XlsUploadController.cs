@@ -20,7 +20,7 @@ namespace excelToJSON.Controllers
         [HttpPost("uploadfile")]
         public async Task<DatagridJson> UploadFile([FromForm] IFormFile xlsFile)
         {
-            var content = ExcelHelper.ReadExcelasJSON(xlsFile);
+            var content = ExcelHelper.ReadExcelAsJSON(xlsFile);
             DatagridJson datagrid = new DatagridJson();
             datagrid.Rows = content;
             datagrid.Description = "My first datagrid package";
