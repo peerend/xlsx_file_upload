@@ -47,8 +47,9 @@ export class XlsToJson extends Component {
       return response.json(); // parses JSON response into native JavaScript objects
     }
     postData().then(function(response){
-      debugger;
-      console.log(response);
+      var model = response;
+      model.rows = JSON.parse(response.rows);
+      console.log(model);
     });
   };
   

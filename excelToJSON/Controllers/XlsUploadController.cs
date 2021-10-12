@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using excelToJSON.Models;
 using excelToJSON.Code;
+using System.Text.Json;
 
 namespace excelToJSON.Controllers
 {
@@ -17,11 +18,13 @@ namespace excelToJSON.Controllers
         }
       
         [HttpPost("uploadfile")]
-        public async Task<string> UploadFile([FromForm] IFormFile xlsFile)
+        public async Task<DatagridJson> UploadFile([FromForm] IFormFile xlsFile)
         {
-            var thisForm = xlsFile;
-            var myJson = ExcelHelper.ReadExcelasJSON(xlsFile);
-            return myJson;
+            var content = ExcelHelper.ReadExcelasJSON(xlsFile);
+            DatagridJson datagrid = new DatagridJson();
+            datagrid.Content = content;
+            datagrid.Description = "My first datagrid package";
+            return datagrid;
         }
     }
 }
